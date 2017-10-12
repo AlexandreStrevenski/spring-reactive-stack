@@ -4,6 +4,7 @@ import com.bank.entity.Account;
 import com.bank.entity.AccountEvent;
 import com.bank.repository.AccountRepository;
 import com.bank.entity.EventType;
+import com.bank.util.RandomUtil;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -26,17 +27,8 @@ public class BankService {
 
     public Flux<AccountEvent> streamStreams(Account account){
         Flux<Long> interval = Flux.interval(Duration.ofSeconds(1));
-        Flux<AccountEvent> events = Flux.fromStream(Stream.generate(()-> new AccountEvent(account, new Date(), randomEvent(), randomAmount())));
+        Flux<AccountEvent> events = Flux.fromStream(Stream.generate(()-> new AccountEvent(account, new Date(), RandomUtil.randomEvent(), RandomUtil.randomAmount())));
         return Flux.zip(interval, events).map(Tuple2::getT2);
-    }
-
-    private Double randomAmount() {
-        return Math.random() *100;
-    }
-
-    private EventType randomEvent() {
-        EventType[] values = EventType.values();
-        return values[new Random().nextInt(values.length)];
     }
 
     public Flux<Account> all() {

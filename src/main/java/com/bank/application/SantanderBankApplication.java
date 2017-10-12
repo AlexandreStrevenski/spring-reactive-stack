@@ -2,6 +2,7 @@ package com.bank.application;
 
 import com.bank.entity.Account;
 import com.bank.repository.AccountRepository;
+import com.bank.util.RandomUtil;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -21,12 +22,10 @@ public class SantanderBankApplication {
 	CommandLineRunner demo(AccountRepository accountRepository) {
 		return args -> {
 			Stream.of("Alex", "John1", "John2", "Someone else", "Hey ho!")
-					.map(name -> new Account(UUID.randomUUID().toString(), name, randomBalance()))
+					.map(name -> new Account(UUID.randomUUID().toString(), name, RandomUtil.randomBalance()))
 					.map(movie-> accountRepository.save(movie))
 					.forEach(System.out::println);
 		};
 	}
-	private Double randomBalance() {
-		return Math.random();
-	}
+
 }

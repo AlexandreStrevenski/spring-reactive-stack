@@ -11,7 +11,9 @@ import reactor.core.publisher.Mono;
 @RestController
 @RequestMapping("/accounts")
 public class AccountRestController {
+
     private final BankService bankService;
+
     public AccountRestController(BankService bankService){
         this.bankService = bankService;
     }
@@ -21,7 +23,7 @@ public class AccountRestController {
         return bankService.all();
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    @GetMapping(value = "/{id}")
     public Mono<Account> byId(@PathVariable String id) {
         System.out.println("Got the ID: "+id);
         return bankService.byId(id);
