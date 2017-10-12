@@ -30,11 +30,6 @@ public class AppConfig {
         dataSource.setDriverClassName(EmbeddedDriver.class.getName());
         dataSource.setUrl("jdbc:derby:conference;create=true");
 
-//        dataSource.setDriverClassName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-//        dataSource.setUrl("jdbc:sqlserver://jcaps-db-prod;instanceName=JCAPS;database=jcaps_mapping_Q");
-//        dataSource.setUsername("jcaps");
-//        dataSource.setPassword("jcaps");
-
         return dataSource;
     }
     @Bean

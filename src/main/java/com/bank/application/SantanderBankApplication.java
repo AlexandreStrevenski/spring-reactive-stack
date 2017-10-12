@@ -20,12 +20,10 @@ public class SantanderBankApplication {
 
 	@Bean
 	CommandLineRunner demo(AccountRepository accountRepository) {
-		return args -> {
-			Stream.of("Alex", "John1", "John2", "Someone else", "Hey ho!")
-					.map(name -> new Account(UUID.randomUUID().toString(), name, RandomUtil.randomBalance()))
-					.map(movie-> accountRepository.save(movie))
-					.forEach(System.out::println);
-		};
+		return args -> Stream.of("Alex", "John1", "John2", "Someone else", "Hey ho!")
+                .map(name -> new Account(UUID.randomUUID().toString(), name, RandomUtil.randomBalance()))
+                .map(account -> accountRepository.save(account))
+                .forEach(System.out::println);
 	}
 
 }

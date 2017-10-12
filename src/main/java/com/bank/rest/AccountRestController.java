@@ -25,13 +25,11 @@ public class AccountRestController {
 
     @GetMapping(value = "/{id}")
     public Mono<Account> byId(@PathVariable String id) {
-        System.out.println("Got the ID: "+id);
         return bankService.byId(id);
     }
 
     @GetMapping(value = "/{id}/events", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
     public Flux<AccountEvent> events (@PathVariable String id){
-        return bankService.byId(id)
-                .flatMapMany(bankService::streamStreams);
+        return bankService.byId(id).flatMapMany(bankService::listenEvents);
     }
 }
