@@ -1,4 +1,4 @@
-package com.bank;
+package com.bank.entity;
 
 import java.text.DecimalFormat;
 import java.util.Date;

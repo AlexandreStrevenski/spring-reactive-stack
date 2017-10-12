@@ -1,5 +1,7 @@
-package com.bank;
+package com.bank.application;
 
+import com.bank.entity.Account;
+import com.bank.repository.AccountRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,4 +1,4 @@
-package com.bank;
+package com.bank.entity;
 
 import lombok.NoArgsConstructor;
 import lombok.ToString;
@@ -44,11 +44,6 @@ public class Account {
 
     public void setBalance(Double balance) {
         this.balance = balance;
-    }
-
-    @Override
-    public String toString() {
-        return "Account - id: +" + getId() + " customer: "+getCustomer()+", balance: "+getBalance();
     }
 
 }

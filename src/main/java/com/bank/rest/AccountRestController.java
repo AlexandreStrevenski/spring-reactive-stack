@@ -1,5 +1,8 @@
-package com.bank;
+package com.bank.rest;
 
+import com.bank.entity.Account;
+import com.bank.entity.AccountEvent;
+import com.bank.service.BankService;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
@@ -17,6 +20,7 @@ public class AccountRestController {
     public Flux<Account> all(){
         return bankService.all();
     }
+
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public Mono<Account> byId(@PathVariable String id) {
         System.out.println("Got the ID: "+id);

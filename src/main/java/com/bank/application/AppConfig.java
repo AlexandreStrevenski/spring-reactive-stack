@@ -1,4 +1,4 @@
-package com.bank;
+package com.bank.application;
 
 import org.apache.derby.jdbc.EmbeddedDriver;
 import org.hibernate.jpa.HibernatePersistenceProvider;
