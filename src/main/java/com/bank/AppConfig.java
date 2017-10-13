@@ -1,4 +1,4 @@
-package com.bank.application;
+package com.bank;
 
 import org.apache.derby.jdbc.EmbeddedDriver;
 import org.hibernate.jpa.HibernatePersistenceProvider;
@@ -17,8 +17,8 @@ import java.util.Properties;
 
 @Configuration
 @EnableAutoConfiguration
-@EntityScan(basePackages = {"com.bank"})
-@EnableJpaRepositories(basePackages = {"com.bank"})
+@EntityScan(basePackages = {"com.bank.entity"})
+@EnableJpaRepositories(basePackages = {"com.bank.repository"})
 @EnableTransactionManagement
 public class AppConfig {
 

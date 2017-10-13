@@ -1,9 +1,9 @@
 package com.bank.service;
 
+import com.bank.util.RandomUtil;
 import com.bank.entity.Account;
 import com.bank.entity.AccountEvent;
 import com.bank.repository.AccountRepository;
-import com.bank.util.RandomUtil;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;

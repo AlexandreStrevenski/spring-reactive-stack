@@ -1,8 +1,8 @@
-package com.bank.application;
+package com.bank;
 
+import com.bank.util.RandomUtil;
 import com.bank.entity.Account;
 import com.bank.repository.AccountRepository;
-import com.bank.util.RandomUtil;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
